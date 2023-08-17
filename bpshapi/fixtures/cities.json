@@ -1,0 +1,18 @@
+[
+  {
+      "model": "bpshapi.city",
+      "pk": 1,
+      "fields": {
+          "name": "Shanghai",
+          "image_url": "https://link-to-shanghai-image.com"
+      }
+  },
+  {
+      "model": "bpshapi.city",
+      "pk": 2,
+      "fields": {
+          "name": "Bangkok",
+          "image_url": "https://link-to-bangkok-image.com"
+      }
+  }
+]

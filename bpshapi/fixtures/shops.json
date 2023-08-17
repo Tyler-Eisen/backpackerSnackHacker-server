@@ -1,0 +1,58 @@
+[
+  {
+      "model": "bpshapi.city",
+      "pk": 1,
+      "fields": {
+          "name": "Shanghai",
+          "image_url": "https://link-to-shanghai-image.com"
+      }
+  },
+  {
+      "model": "bpshapi.city",
+      "pk": 2,
+      "fields": {
+          "name": "Bangkok",
+          "image_url": "https://link-to-bangkok-image.com"
+      }
+  },
+  {
+      "model": "bpshapi.shop",
+      "pk": 1,
+      "fields": {
+          "name": "city shop",
+          "address": "123 Shanghai St, Shanghai, China",
+          "image_url": "https://link-to-city-shop-image.com",
+          "city_id": 1
+      }
+  },
+  {
+      "model": "bpshapi.shop",
+      "pk": 2,
+      "fields": {
+          "name": "iapm",
+          "address": "456 Shanghai St, Shanghai, China",
+          "image_url": "https://link-to-iapm-shop-image.com",
+          "city_id": 1
+      }
+  },
+  {
+      "model": "bpshapi.shop",
+      "pk": 3,
+      "fields": {
+          "name": "Tops Market",
+          "address": "789 Bangkok St, Bangkok, Thailand",
+          "image_url": "https://link-to-tops-market-image.com",
+          "city_id": 2
+      }
+  },
+  {
+      "model": "bpshapi.shop",
+      "pk": 4,
+      "fields": {
+          "name": "Gourmet Market",
+          "address": "012 Bangkok St, Bangkok, Thailand",
+          "image_url": "https://link-to-gourmet-market-image.com",
+          "city_id": 2
+      }
+  }
+]
