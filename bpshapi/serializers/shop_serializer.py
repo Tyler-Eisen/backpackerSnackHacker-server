@@ -11,3 +11,4 @@ class ShopSerializer(serializers.ModelSerializer):
                   'name',
                   'city_id',)
         depth = 2
+        

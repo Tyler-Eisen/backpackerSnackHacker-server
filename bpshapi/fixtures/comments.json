@@ -1,0 +1,92 @@
+[
+  {
+      "model": "bpshapi.comment",
+      "pk": 1,
+      "fields": {
+          "content": "Great product!",
+          "product": 1,
+          "user": 1
+      }
+  },
+  {
+      "model": "bpshapi.comment",
+      "pk": 2,
+      "fields": {
+          "content": "Loved it, very useful.",
+          "product": 2,
+          "user": 2
+      }
+  },
+  {
+      "model": "bpshapi.comment",
+      "pk": 3,
+      "fields": {
+          "content": "Not what I expected.",
+          "product": 3,
+          "user": 3
+      }
+  },
+  {
+      "model": "bpshapi.comment",
+      "pk": 4,
+      "fields": {
+          "content": "Impressive quality for the price.",
+          "product": 4,
+          "user": 1
+      }
+  },
+  {
+      "model": "bpshapi.comment",
+      "pk": 5,
+      "fields": {
+          "content": "Average, nothing special.",
+          "product": 5,
+          "user": 2
+      }
+  },
+  {
+      "model": "bpshapi.comment",
+      "pk": 6,
+      "fields": {
+          "content": "Would recommend!",
+          "product": 6,
+          "user": 3
+      }
+  },
+  {
+      "model": "bpshapi.comment",
+      "pk": 7,
+      "fields": {
+          "content": "A bit expensive for what you get.",
+          "product": 7,
+          "user": 1
+      }
+  },
+  {
+      "model": "bpshapi.comment",
+      "pk": 8,
+      "fields": {
+          "content": "The design is sleek and modern.",
+          "product": 8,
+          "user": 2
+      }
+  },
+  {
+      "model": "bpshapi.comment",
+      "pk": 9,
+      "fields": {
+          "content": "Doesn't fit my needs.",
+          "product": 9,
+          "user": 3
+      }
+  },
+  {
+      "model": "bpshapi.comment",
+      "pk": 10,
+      "fields": {
+          "content": "Quick delivery and easy setup.",
+          "product": 10,
+          "user": 1
+      }
+  }
+]

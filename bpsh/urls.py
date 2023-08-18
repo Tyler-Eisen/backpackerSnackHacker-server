@@ -1,4 +1,4 @@
-from bpshapi.views import UserView, CityView, ShopView
+from bpshapi.views import UserView, CityView, ShopView, ProductView, CommentView
 from bpshapi.views.auth import check_user, register_user
 from django.contrib import admin
 from django.urls import path, include
@@ -8,6 +8,8 @@ router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'users', UserView, 'user')
 router.register(r'cities', CityView, 'city')
 router.register(r'shops', ShopView, 'shop')
+router.register(r'products', ProductView, 'shop')
+router.register(r'comments', CommentView, 'comment')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

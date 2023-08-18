@@ -2,8 +2,9 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from bpshapi.models import Shop, City
+from bpshapi.models import Shop, City, UserFavorite
 from bpshapi.serializers import ShopSerializer
+from rest_framework.decorators import action
 
 class ShopView(ViewSet):
     
@@ -61,3 +62,27 @@ class ShopView(ViewSet):
         shop = Shop.objects.get(pk=pk)
         shop.delete()
         return Response({'message': 'Shop Destroyed'}, status=status.HTTP_204_NO_CONTENT)
+
+    @action(detail=True, methods=['post'])
+    def favorite(self, request, pk=None):
+        """Favorite a shop."""
+        shop = Shop.objects.get(pk=pk)
+        user = request.user  # Assuming you have authentication set up
+
+
+        favoritedShop = UserFavorite.objects.create(shop=shop, user=user)
+        return Response({'message': 'Shop favorited successfully!'}, status=status.HTTP_201_CREATED)
+
+    @action(detail=True, methods=['delete'])
+    def unfavorite(self, request, pk=None):
+        """Unfavorite a shop."""
+        shop = Shop.objects.get(pk=pk)
+        user = request.user
+
+        favorite = UserFavorite.objects.filter(shop=shop, user_id=user).first()
+
+        if not favorite:
+            return Response({'message': 'Shop not in favorites.'}, status=status.HTTP_404_NOT_FOUND)
+
+        favorite.delete()
+        return Response({'message': 'Shop unfavorited successfully!'}, status=status.HTTP_204_NO_CONTENT)

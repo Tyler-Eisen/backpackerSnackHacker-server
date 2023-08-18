@@ -1,0 +1,112 @@
+[
+  {
+      "model": "bpshapi.product",
+      "pk": 1,
+      "fields": {
+          "shop": 1,
+          "user": 1,
+          "name": "Choco Bites",
+          "price": "$2.50",
+          "image_url": "https://example.com/images/chocobites.jpg"
+      }
+  },
+  {
+      "model": "bpshapi.product",
+      "pk": 2,
+      "fields": {
+          "shop": 1,
+          "user": 1,
+          "name": "Crispy Chips",
+          "price": "$1.99",
+          "image_url": "https://example.com/images/crispychips.jpg"
+      }
+  },
+  {
+      "model": "bpshapi.product",
+      "pk": 3,
+      "fields": {
+          "shop": 2,
+          "user": 2,
+          "name": "Sour Gummies",
+          "price": "$2.10",
+          "image_url": "https://example.com/images/sourgummies.jpg"
+      }
+  },
+  {
+      "model": "bpshapi.product",
+      "pk": 4,
+      "fields": {
+          "shop": 2,
+          "user": 1,
+          "name": "Caramel Delight",
+          "price": "$3.50",
+          "image_url": "https://example.com/images/caramelelight.jpg"
+      }
+  },
+  {
+      "model": "bpshapi.product",
+      "pk": 5,
+      "fields": {
+          "shop": 1,
+          "user": 2,
+          "name": "Nutty Bar",
+          "price": "$2.75",
+          "image_url": "https://example.com/images/nuttybar.jpg"
+      }
+  },
+  {
+      "model": "bpshapi.product",
+      "pk": 6,
+      "fields": {
+          "shop": 2,
+          "user": 1,
+          "name": "Fruity Loops",
+          "price": "$2.00",
+          "image_url": "https://example.com/images/fruityloops.jpg"
+      }
+  },
+  {
+      "model": "bpshapi.product",
+      "pk": 7,
+      "fields": {
+          "shop": 1,
+          "user": 2,
+          "name": "Popcorn",
+          "price": "$1.50",
+          "image_url": "https://example.com/images/popcorn.jpg"
+      }
+  },
+  {
+      "model": "bpshapi.product",
+      "pk": 8,
+      "fields": {
+          "shop": 1,
+          "user": 1,
+          "name": "Salty Pretzels",
+          "price": "$1.20",
+          "image_url": "https://example.com/images/saltypretzels.jpg"
+      }
+  },
+  {
+      "model": "bpshapi.product",
+      "pk": 9,
+      "fields": {
+          "shop": 2,
+          "user": 2,
+          "name": "Vanilla Cookies",
+          "price": "$2.30",
+          "image_url": "https://example.com/images/vanillacookies.jpg"
+      }
+  },
+  {
+      "model": "bpshapi.product",
+      "pk": 10,
+      "fields": {
+          "shop": 2,
+          "user": 1,
+          "name": "Cocoa Crisps",
+          "price": "$2.99",
+          "image_url": "https://example.com/images/cocoacrisps.jpg"
+      }
+  }
+]
