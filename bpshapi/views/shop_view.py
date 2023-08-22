@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from bpshapi.models import Shop, City, UserFavorite
+from bpshapi.models import Shop, City, UserFavorite, User
 from bpshapi.serializers import ShopSerializer
 from rest_framework.decorators import action
 
@@ -67,7 +67,7 @@ class ShopView(ViewSet):
     def favorite(self, request, pk=None):
         """Favorite a shop."""
         shop = Shop.objects.get(pk=pk)
-        user = request.user  # Assuming you have authentication set up
+        user = User.objects.get(id=request.data["id"])
 
 
         favoritedShop = UserFavorite.objects.create(shop=shop, user=user)
@@ -77,7 +77,7 @@ class ShopView(ViewSet):
     def unfavorite(self, request, pk=None):
         """Unfavorite a shop."""
         shop = Shop.objects.get(pk=pk)
-        user = request.user
+        user = User.objects.get(user=request.user)
 
         favorite = UserFavorite.objects.filter(shop=shop, user_id=user).first()
 

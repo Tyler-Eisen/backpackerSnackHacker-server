@@ -29,8 +29,8 @@ class ProductView(ViewSet):
         return Response(serializer.data)
     
     def create(self, request):
-      shop = Shop.objects.get(pk=request.data["shop_id"])
-      user = User.objects.get(pk=request.data["user_id"])
+      shop = Shop.objects.get(pk=request.data["shop"])
+      user = User.objects.get(pk=request.data["userId"])
 
       product = Product(
           shop=shop,
@@ -60,8 +60,8 @@ class ProductView(ViewSet):
       product.user = user
 
       product.save()
-
-      return Response({'message': 'Product Updated'}, status=status.HTTP_204_NO_CONTENT)
+      serializer = ProductSerializer(product)
+      return Response(serializer.data, status=status.HTTP_200_OK)
     
     def destroy(self, request, pk):
         """DELETE request to destroy a rare user"""
