@@ -13,10 +13,10 @@ class CommentView(ViewSet):
 
     def list(self, request):
         comments = Comment.objects.all()
-        product_id = request.query_params.get('product_id', None)
+        productId = request.query_params.get('productId', None)
         
-        if product_id is not None:
-            comments = comments.filter(product_id=product_id)
+        if productId is not None:
+            comments = comments.filter(product_id=productId)
             
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
