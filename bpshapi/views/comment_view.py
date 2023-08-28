@@ -22,8 +22,8 @@ class CommentView(ViewSet):
         return Response(serializer.data)
       
     def create(self, request):
-        product = Product.objects.get(pk=request.data["product_id"])
-        user = User.objects.get(pk=request.data["user_id"])
+        product = Product.objects.get(pk=request.data["productId"])
+        user = User.objects.get(pk=request.data["userId"])
 
         comment = Comment(
             product=product,
@@ -47,8 +47,9 @@ class CommentView(ViewSet):
         comment.user = User.objects.get(pk=user_id)
 
         comment.save()
-
-        return Response({'message': 'Comment Updated'}, status=status.HTTP_204_NO_CONTENT)
+        
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
     def destroy(self, request, pk):
         comment = Comment.objects.get(pk=pk)

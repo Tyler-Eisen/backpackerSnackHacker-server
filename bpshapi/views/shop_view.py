@@ -21,10 +21,22 @@ class ShopView(ViewSet):
         """List all shops or filter by city_id."""
         shops = Shop.objects.all()
         city_id = request.query_params.get('city_id', None)
-        
+
         if city_id is not None:
             shops = shops.filter(city_id=city_id)
-            
+
+        try:
+            uid = request.META['HTTP_AUTHORIZATION']
+            user = User.objects.get(uid=uid)
+
+            for shop in shops:
+                shop.favorited = len(UserFavorite.objects.filter(
+                    user=user, shop=shop)) > 0
+
+        except KeyError:
+            # Handle missing header
+            pass
+
         serializer = ShopSerializer(shops, many=True)
         return Response(serializer.data)
     
@@ -67,7 +79,7 @@ class ShopView(ViewSet):
     def favorite(self, request, pk=None):
         """Favorite a shop."""
         shop = Shop.objects.get(pk=pk)
-        user = User.objects.get(id=request.data["id"])
+        user = User.objects.get(uid=request.user.uid)
 
 
         favoritedShop = UserFavorite.objects.create(shop=shop, user=user)
@@ -77,9 +89,9 @@ class ShopView(ViewSet):
     def unfavorite(self, request, pk=None):
         """Unfavorite a shop."""
         shop = Shop.objects.get(pk=pk)
-        user = User.objects.get(user=request.user)
+        user = User.objects.get(uid=request.data["uid"])
 
-        favorite = UserFavorite.objects.filter(shop=shop, user_id=user).first()
+        favorite = UserFavorite.objects.filter(shop=shop, user=user).first()
 
         if not favorite:
             return Response({'message': 'Shop not in favorites.'}, status=status.HTTP_404_NOT_FOUND)

@@ -9,6 +9,7 @@ class ShopSerializer(serializers.ModelSerializer):
                   'address', 
                   'image_url',
                   'name',
-                  'city_id',)
+                  'city_id',
+                  'favorited')
         depth = 2
         
