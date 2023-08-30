@@ -24,14 +24,17 @@ class ShopView(ViewSet):
 
         if city_id is not None:
             shops = shops.filter(city_id=city_id)
-
+            
         try:
             uid = request.META['HTTP_AUTHORIZATION']
             user = User.objects.get(uid=uid)
+            print('CURRENT USER:', user)
 
             for shop in shops:
+                print("checking")
                 shop.favorited = len(UserFavorite.objects.filter(
                     user=user, shop=shop)) > 0
+                print(shop.favorited)
 
         except KeyError:
             # Handle missing header
@@ -79,7 +82,7 @@ class ShopView(ViewSet):
     def favorite(self, request, pk=None):
         """Favorite a shop."""
         shop = Shop.objects.get(pk=pk)
-        user = User.objects.get(uid=request.user.uid)
+        user = User.objects.get(uid=request.data["uid"])
 
 
         favoritedShop = UserFavorite.objects.create(shop=shop, user=user)
@@ -89,7 +92,8 @@ class ShopView(ViewSet):
     def unfavorite(self, request, pk=None):
         """Unfavorite a shop."""
         shop = Shop.objects.get(pk=pk)
-        user = User.objects.get(uid=request.data["uid"])
+        user = User.objects.get(uid=request.META["HTTP_AUTHORIZATION"])
+        print(shop, user)
 
         favorite = UserFavorite.objects.filter(shop=shop, user=user).first()
 

@@ -1,0 +1,18 @@
+[
+  {
+      "model": "bpshapi.userFavorite",
+      "pk": 1,
+      "fields": {
+          "shop": 1,
+          "user": 5
+      }
+  },
+  {
+      "model": "bpshapi.userFavorite",
+      "pk": 2,
+      "fields": {
+          "shop": 2,
+          "user": 5
+      }
+  }
+]
